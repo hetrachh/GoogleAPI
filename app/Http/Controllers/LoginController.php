@@ -18,17 +18,18 @@ class LoginController extends Controller
 
     public function loginAdmin(Request $request)
     {
-        $credentials = $request->only('email', 'password');
-        //return $credentials;
-        try {
-            if (Auth::guard('admin')->attempt($credentials)) {
-                return 'pass';
-            } else {
-                return 'fail';
-            }
-        } catch (Exception $e) {
-               return $e;
-        }
+        // $credentials = $request->only('email', 'password');
+        $res = Auth::guard('api')->attempt(['email' => 'dpithwa@codal.com','password' => '1234']);
+        var_dump($res);
+        // try {
+        //     if (Auth::guard('admin')->attempt($credentials)) {
+        //         return 'pass';
+        //     } else {
+        //         return 'fail';
+        //     }
+        // } catch (Exception $e) {
+        //        return $e;
+        // }
 
     }
 }
